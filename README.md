@@ -1,2 +1,2 @@
-# Xur
+# Where's Xur?
 Destiny 2 - Xur Locations and Inventory Page
