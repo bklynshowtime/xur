@@ -103,6 +103,17 @@ a {
 	text-align: center;
 }
 
+/* AdBlock */
+.adblock .xur-detect {
+    width: 100vw;
+    height: 100vh;
+}
+
+.xur-detect-title {
+	text-align: center;
+	font-size: 30px;
+}
+
 .notblocked {
 	display: block;
 }

@@ -8,6 +8,7 @@ class adBlock {
 		window.setTimeout(function() {
 			if (test.offsetHeight === 0) {
 				jQuery('body').addClass('adblock');
+				jQuery('.xur-detect').html('<div class="xur-detect-title">Turn AdBlock off to view this site...</div>')
 				console.log('run message');
 			}
 			else {
