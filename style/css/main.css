@@ -107,6 +107,7 @@ a {
 .xur-location {
 	width: calc(100% - 10px);
 	margin: 5px;
+	position: relative;
 }
 
 .xur-location-block {
@@ -133,10 +134,22 @@ a {
     z-index: 1;
 }
 
-.xur-location-unknown {
+.xur-location-available {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 300;
+}
+
+.xur-current-location .xur-location-status {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 40px;
+	height: 40px;
+	background: url(http://i44.servimg.com/u/f44/13/94/19/07/destin10.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 1;
 }
 
 /* AdBlock */

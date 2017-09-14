@@ -5,7 +5,6 @@ class App {
 		this.buildTemplate();
 		this.buildLocations();
 		this.buildTimer();
-		this.resizeTemplate();
 		this.moveXur();
 	}
 
@@ -33,14 +32,17 @@ class App {
 	}
 
 	buildTimer() {
-		var data = JSON.parse(localStorage.locations);
-		var time;
+		var data, time, current;
+		data = JSON.parse(localStorage.locations);
 		for (var i = 0; i < Object.keys(data).length; i++) {
 			launch = moment(data[i].time);
 	        today = moment().format();
 	        seconds = (launch.diff(today, 'seconds'));
 	        if(seconds > 0 && data[i].available === true) {
 	        	time = data[i].time;
+	        	current = i+1;
+	        	jQuery('.xur-location').removeClass('xur-current-location');
+	        	jQuery('.xur-location:nth-child('+current+')').addClass('xur-current-location');
 	        }
 		}
 		var timer, content, launch, today, days, day, hours, hour, minutes, minute, nm, seconds, second;
@@ -114,60 +116,61 @@ class App {
 		for (var i = 0; i < Object.keys(json).length; i++) {
 			var data, content;
 			data = json[i];
-			var loot = (data.available ? this.loadLoot(data,i) : '<div class="xur-location-unknown">unknown</div>');
+			var loot = (data.available ? '<div class="xur-location-available">'+data.location+'</div>' : '<div class="xur-location-available">unknown</div>');
 			var available = (data.available ? 'available' : 'not-available');
 			content = 	`<div class="xur-location">
+							<div class="xur-location-status"></div>
 							<div class="xur-location-block `+available+`">
 								<div class="xur-location-loot xur-wrapper">`+loot+`</div>
 								<div class="xur-location-time">`+moment(data.time).format("MMM Do YYYY")+`</div>
 							</div>
 						</div>`;
 			jQuery('.xur-locations').append(content);
-			this.buildCarousel();
+			// this.buildCarousel();
 		}
 	}
 
-	loadLoot(data,num) {
-		var content;
-		content = 	`<div class="loot-carousel owl-carousel owl-theme">
-					    <div class="item">
-					    	<img src="http://via.placeholder.com/1920x1080" width="100%">
-					    </div>
-					    <div class="item">
-					    	<img src="http://via.placeholder.com/1920x1080" width="100%">
-					    </div>
-					    <div class="item">
-					    	<img src="http://via.placeholder.com/1920x1080" width="100%">
-					    </div>
-					    <div class="item">
-					    	<img src="http://via.placeholder.com/1920x1080" width="100%">
-					    </div>
-					    <div class="item">
-					    	<img src="http://via.placeholder.com/1920x1080" width="100%">
-					    </div>
-					</div>`;
-		return content;
-	}
+	// loadLoot(data,num) {
+	// 	var content;
+	// 	content = 	`<div class="loot-carousel owl-carousel owl-theme">
+	// 				    <div class="item">
+	// 				    	<img src="http://via.placeholder.com/1920x1080" width="100%">
+	// 				    </div>
+	// 				    <div class="item">
+	// 				    	<img src="http://via.placeholder.com/1920x1080" width="100%">
+	// 				    </div>
+	// 				    <div class="item">
+	// 				    	<img src="http://via.placeholder.com/1920x1080" width="100%">
+	// 				    </div>
+	// 				    <div class="item">
+	// 				    	<img src="http://via.placeholder.com/1920x1080" width="100%">
+	// 				    </div>
+	// 				    <div class="item">
+	// 				    	<img src="http://via.placeholder.com/1920x1080" width="100%">
+	// 				    </div>
+	// 				</div>`;
+	// 	return content;
+	// }
 
-	buildCarousel() {
-		jQuery('.loot-carousel').owlCarousel({
-		    loop: true,
-		    margin: 0,
-		    nav: false,
-		    responsive:{
-		        0:{ items: 1 }
-		    }
-		});
-	}
+	// buildCarousel() {
+	// 	jQuery('.loot-carousel').owlCarousel({
+	// 	    loop: true,
+	// 	    margin: 0,
+	// 	    nav: false,
+	// 	    responsive:{
+	// 	        0:{ items: 1 }
+	// 	    }
+	// 	});
+	// }
 
-	resizeTemplate() {
-		jQuery(window).resize(function() {
-			var loot, lootHeight;
-			loot = jQuery('.loot-carousel');
-			lootHeight = loot.height();
-			jQuery('.xur-location-block.not-available').css({'min-height':lootHeight+'px'});
-		});
-	}
+	// resizeTemplate() {
+	// 	jQuery(window).resize(function() {
+	// 		var loot, lootHeight;
+	// 		loot = jQuery('.loot-carousel');
+	// 		lootHeight = loot.height();
+	// 		jQuery('.xur-location-block.not-available').css({'min-height':lootHeight+'px'});
+	// 	});
+	// }
 
 	moveXur() {
 		var randX, randY;
