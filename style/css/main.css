@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
+* {
+	font-family: 'Lato';
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.xur-wrapper {
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-ms-box-orient: horizontal;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: inherit;
+}
+
+/* Banner */
+.xur-banner {
+	width: 100vw;
+	height: 100vh;
+	background: url(../../media/image/xur.png), rgba(0,0,0,0.50);
+	background-size: cover;
+	background-position: center center;
+}
+
+/* Timer */
+.xur-timer {
+	position: fixed;
+	width: 100%;
+	height: 60px;
+	bottom: 0px;
+	left: 0px;
+	background: #fff;
+}
+
+.xur-timer-message {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.xur-timer-value {
+	font-weight: 600;
+}
+
+.xur-timer-title {
+	font-weight: 300;
+	font-size: 11px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin-top: 5px;
+}
+
+.xur-timer-item {
+	width: 25%;
+	text-align: center;
+}
+
+.notblocked {
+	display: block;
+}
+.blocked {
+	display: none;
+}
+.adblock .notblocked {
+	display: none;
+}
+.adblock .blocked {
+	display: block;
+}
