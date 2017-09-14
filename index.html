@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Where's Xur? | wheresxur.com</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="style/css/main.css">
 	</head>
 	<body>
@@ -13,9 +14,9 @@
 	<script src="style/js/moment.js"></script>
 	<script src="style/js/controller/app.js"></script>
 	<script src="style/js/controller/storage.js"></script>
-	<!-- <script src="style/js/controller/adblock.js"></script> -->
+	<script src="style/js/controller/ad-detect.js"></script>
 	<script>
-		var app = new App();
-		app.init();
+		var app = new App(), adblock = new adBlock();
+		adblock.init();
 	</script>
 </html>

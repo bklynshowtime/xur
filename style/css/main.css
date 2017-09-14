@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Open+Sans:300,400,600,700,800');
 
 * {
 	font-family: 'Lato';
@@ -33,24 +33,36 @@ a {
 /* Banner */
 .xur-banner {
 	width: 100vw;
-	height: 100vh;
+	height: calc(80vh - 60px);
 	background: url(../../media/image/xur.png), rgba(0,0,0,0.50);
 	background-size: cover;
 	background-position: center center;
 }
 
+.xur-banner-title-item {
+	font-size: 200px;
+    font-family: Open Sans;
+    font-weight: 900;
+    letter-spacing: -22px;
+    text-transform: capitalize;
+    color: #fff;
+}
+
 /* Timer */
 .xur-timer {
-	position: fixed;
+	/*position: fixed;*/
 	width: 100%;
 	height: 60px;
+	/*top: calc(75% - 30px);*/
 	bottom: 0px;
 	left: 0px;
-	background: #fff;
+	background: #1f232e;
+	color: #fff;
 }
 
 .xur-timer-message {
     width: 500px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -68,6 +80,26 @@ a {
 
 .xur-timer-item {
 	width: 25%;
+	text-align: center;
+}
+
+.xur-locations {
+	justify-content: flex-start;
+	width: 1200px;
+	max-width: 95%;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.xur-location {
+	width: calc(33.3% - 10px);
+	margin: 5px;
+}
+
+.xur-location-block {
+	min-height: 240px;
+	background: #f6f6f7;
 	text-align: center;
 }
 
