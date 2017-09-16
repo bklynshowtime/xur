@@ -35,11 +35,13 @@ class App {
 		var data, time, current;
 		data = JSON.parse(localStorage.locations);
 		for (var i = 0; i < Object.keys(data).length; i++) {
-			launch = moment(data[i].time);
+			launch = moment(data[i].arrive);
 	        today = moment().format();
 	        seconds = (launch.diff(today, 'seconds'));
-	        if(seconds > 0 && data[i].available === true) {
-	        	time = data[i].time;
+	        if(seconds > 0 && seconds < 604800) {
+	        	time = data[i].arrive;
+	        }
+	        else if ( data[i].available === true ) {
 	        	current = i+1;
 	        	jQuery('.xur-location').removeClass('xur-current-location');
 	        	jQuery('.xur-location:nth-child('+current+')').addClass('xur-current-location');
@@ -65,7 +67,7 @@ class App {
         days = launch.diff(today,'days');
         hours = launch.diff(today,'hours');
         if(hours<24){hours=hours;}
-        else {hours=hours-24;}
+        else {hours = hours - (days * 24) }
         minutes = (launch.diff(today, 'minutes'));
         seconds = (launch.diff(today, 'seconds'));
 		nm = Math.round( ((launch.diff(today, 'hours') - minutes/60) * 60), 2);
@@ -122,7 +124,7 @@ class App {
 							<div class="xur-location-status"></div>
 							<div class="xur-location-block `+available+`">
 								<div class="xur-location-loot xur-wrapper">`+loot+`</div>
-								<div class="xur-location-time">`+moment(data.time).format("MMM Do YYYY")+`</div>
+								<div class="xur-location-time">`+moment(data.arrive).format("MMM Do YYYY")+`</div>
 							</div>
 						</div>`;
 			jQuery('.xur-locations').append(content);
