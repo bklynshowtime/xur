@@ -61,6 +61,21 @@ a {
     text-transform: capitalize;
     color: #fff;
 }
+.xur-planet {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background: #F6F6F7;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: url("../../media/image/default.jpg");
+    background-size: 75px 75px;
+}
+.xur-planet.earth {
+	background: url(../../media/image/planet.jpg);
+    background-size: 75px 75px;
+}
 
 /* Timer */
 .xur-timer {

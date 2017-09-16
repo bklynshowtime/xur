@@ -121,6 +121,7 @@ class App {
 			content = 	`<div class="xur-location">
 							<div class="xur-location-status"></div>
 							<div class="xur-location-block `+available+`">
+								<div class="xur-planet `+data.location+`"></div>
 								<div class="xur-location-loot xur-wrapper">`+loot+`</div>
 								<div class="xur-location-time">`+moment(data.time).format("MMM Do YYYY")+`</div>
 							</div>
